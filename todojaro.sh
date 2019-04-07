@@ -72,7 +72,11 @@ askUserForJetBrainsInstall (){
 			for (( j=4; $j >= 0; j-- )) ; do
 				for (( k=6; $k >= 0; k-- )) ; do
 					if [[ $goSearch == 1 ]]; then 
-						wget "https://download-cf.jetbrains.com/$2-$i.$j.$k.tar.gz" -O "$4.tar.gz"
+					    if [[ $k == 0 ]]; then 
+					        wget "https://download-cf.jetbrains.com/$2-$i.$j.tar.gz" -O "$4.tar.gz"
+					    else 
+					        wget "https://download-cf.jetbrains.com/$2-$i.$j.$k.tar.gz" -O "$4.tar.gz"
+					    fi
 						if [[ $? == 0 ]]; then goSearch=0; fi
 					fi
 				done
